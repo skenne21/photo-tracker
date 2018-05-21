@@ -83,3 +83,12 @@ img {
   background-size: cover;
   background-position: center;
 }
+
+.delete:hover {
+  background-color: #757575;
+}
+
+.add_photos:disabled {
+  background-color: #757575;
+  color: #fff;
+}

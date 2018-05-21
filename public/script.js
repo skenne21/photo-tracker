@@ -1,3 +1,11 @@
+const enableButton = () => {
+  const title = $('.title').val();
+  const url = $('.url').val();
+  if ( title && url) {
+    $('.add_photos').attr('disabled', false);
+  } 
+}
+
 const createPhotos = event => {
   event.preventDefault();
   const title = $('.title').val();
@@ -11,12 +19,13 @@ const createPhotos = event => {
 
 const runPhotos = photo => {
   postPhoto(photo);
-  clearInputs();
+  resetForm();
 }
 
-const clearInputs = () => {
+const resetForm = () => {
   $('.title').val(" ");
   $('.url').val(" ");
+  $('.add_photos').attr('disabled', true);
 }
 
 const postPhoto = async (photo) => {
@@ -79,6 +88,8 @@ const deletePhoto = async (id) => {
   }
 }
 
+
+$('input').on('keyup', enableButton);
 $('.add_photos').on('click', createPhotos);
 $('.show_photos').on('click', '.delete', removePhoto);
 $(document).ready(() => {

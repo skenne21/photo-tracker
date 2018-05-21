@@ -83,3 +83,8 @@ img {
   background-size: cover;
   background-position: center;
 }
+
+.add_photos:disabled {
+  background-color: #757575;
+  color: #fff;
+}

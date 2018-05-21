@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+}
+
+header {
+  margin: 0;
+  background-image: url('./kyle-glenn.jpg');
+  background-size: cover;
+  height: 300px;
+}
+
+h1 {
+  text-align: center;
+  margin: 0;
+  padding: 0.3em;
+  font-size: 3em;
+  color: #757575;
+}
+
+form {
+  text-align: center;
+  margin: auto;
+}
+
+input {
+  font-size: 1em;
+  padding-left: 20px;
+  border: none;
+  height: 2.5em;
+  width: 30%;
+  margin: 1em auto;
+  display: block;
+}
+
+button {
+  padding-left: 20px;
+  text-align: left;
+  color: #757575;
+  border: none;
+  background-color: #fff;
+  height: 2.5em;
+  width: 31.5%;
+  font-size: 1em;
+}

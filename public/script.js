@@ -1,7 +1,3 @@
-const enableButton = event => {
-  console.log('he')
-}
-
 const createPhotos = event => {
   event.preventDefault();
   const title = $('.title').val();
@@ -83,7 +79,6 @@ const deletePhoto = async (id) => {
   }
 }
 
-$('input').on('keyUp', enableButton)
 $('.add_photos').on('click', createPhotos);
 $('.show_photos').on('click', '.delete', removePhoto);
 $(document).ready(() => {

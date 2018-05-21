@@ -44,7 +44,29 @@ app.get('/api/v1/photos/:id', (request, response) => {
 
 })
 
-app.post('/api/v1/photos', ( request, reponse) => {
+app.post('/api/v1/photos', ( request, response) => {
+  const usersInfo = request.body;
+
+  for (let requiredParameter of ['title', 'url']) {
+    if  (!usersInfo[requiredParameter]) {
+      return response
+        .status(422)
+        .send({
+          error: `Expected format of post : { title: <string>, url: <string>. You are missing a ${requiredParameter} property.`
+        });
+    }
+  }
+
+  const { title, url } = usersInfo;
+  const photo = { title, url}
+
+  database('photos').insert(photo, 'id')
+    .then( id => {
+      response.status(202).json({ id: id[0]})
+    })
+    .catch( error => {
+      response.status(500).json({error})
+    })
 
 })
 

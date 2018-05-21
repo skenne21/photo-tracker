@@ -45,6 +45,7 @@ app.get('/api/v1/photos/:id', (request, response) => {
 
 app.post('/api/v1/photos', ( request, response) => {
   const usersInfo = request.body;
+  console.log(usersInfo)
   for (let requiredParameter of ['title', 'url']) {
     if  (!usersInfo[requiredParameter]) {
       return response

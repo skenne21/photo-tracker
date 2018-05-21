@@ -18,11 +18,29 @@ app.get('/', (request, reponse) => {
 
 })
 
-app.get('/api/v1/photos', (request, reponse) => {
-
+app.get('/api/v1/photos', (request, response) => {
+  database('photos').select()
+    .then(photos => {
+      console.log(photos)
+      response.status(200).json(photos);
+    })
+    .catch( error => {
+      response.status(500).json({error})
+    })
 })
 
-app.get('/api/v1/photos/:id', (request, reponse) => {
+app.get('/api/v1/photos/:id', (request, response) => {
+  database('photos').where('id', request.params.id).select()
+    .then( photo => {
+      if (photo.length) {
+        response.status(200).json(photo);
+      } else {
+        response.status(404).json({error: `could not find id ${request.params.id}`})
+      } 
+    })
+    .catch(error => {
+      response.status(500).json({error})
+    })
 
 })
 

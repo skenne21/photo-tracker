@@ -51,7 +51,7 @@ const appendPhotos = photos => {
       <article class="photo" id="${photo.id}">
         <h3>Title: ${photo.title}</h3>
         <img src="${photo.url}"/>
-        <button class="delete">X</button>
+        <button class="delete"></button>
       </article>
     `);
   });

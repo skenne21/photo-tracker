@@ -18,24 +18,32 @@ const setInputs = () => {
 }
 
 const setPhoto = async (photo) => {
+  console.log(photo)
   try {
     const response = await fetch('/api/v1/photos', {
       method: 'POST',
       body: JSON.stringify(photo),
       headers: { 'Content-Type': 'application/json' }
     });
-    await fetchPhotos()
+    fetchPhotos();
   } catch ( error ) {
     console.log(error);
   }
 }
 
-const fetchPhotos = () => {
+const fetchPhotos = async () => {
   try {
-
+    const response = await fetch('/api/v1/photos');
+    const photos = response.json();
+    appendPhotos(photos);
   } catch (error) {
     console.log(error)
   }
+}
+
+const appendPhotos = (photos) => {
+  const parnet = $('.show_photos');
+  
 }
 
 $('.add_photos').on('click', createPhotos);
